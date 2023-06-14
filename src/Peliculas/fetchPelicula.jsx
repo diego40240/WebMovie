@@ -14,6 +14,7 @@ export async function peticion({ busqueda, page }) {
   const res = await fetch(api_llamado);
   const data = await res.json();
   const info = data.results;
+  // const carga = info.length === 0;
   const total = page < data.total_pages;
 
   const resul = info.map((d) => ({

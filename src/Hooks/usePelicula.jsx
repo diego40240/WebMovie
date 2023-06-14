@@ -14,7 +14,10 @@ export function usePelicula({ busqueda }) {
       anteriorBusqueda.current = busqueda;
     }
 
-    const { resul, total } = await peticion({ busqueda, page });
+    const { resul, total } = await peticion({
+      busqueda,
+      page,
+    });
     const r = respuesta.concat(resul);
     const nuevaPagina = page + 1;
     setPage(nuevaPagina);
