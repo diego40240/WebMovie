@@ -5,6 +5,12 @@ API a usar: - https://www.omdbapi.com/ Consigue la API Key en la propia página 
 
 API_KEY = '31833f4f'
 
+API MOVIE TMDB
+Icons FontAwesome
+Scroll Infinite
+Buscar pelicula
+Debounce(busca 300ms cuando se acabe de escribir)
+
 Requerimientos:
 
 ✅ Necesita mostrar un input para buscar la película y un botón para buscar.

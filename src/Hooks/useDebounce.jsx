@@ -6,11 +6,12 @@ export function useDebounce({
   setSkeleton,
   setNoRespuesta,
   obtener,
+  anteriorBuscar,
 }) {
   const useDebounceCall = useCallback(
     debounce((nuevaBusqueda) => {
       obtener(nuevaBusqueda);
-      anteriorBuscar.current.value = nuevaBusqueda;
+      // anteriorBuscar.current.value = nuevaBusqueda;
     }, 300),
     []
   );
@@ -23,5 +24,12 @@ export function useDebounce({
     }, 1000),
     []
   );
+
+  // const useDebounceCall = useCallback(
+  //   debounce(function (nuevaBusqueda) {
+  //     return obtener(nuevaBusqueda);
+  //   }, 300),
+  //   []
+  // );
   return { useDebounceCall, loaderTime };
 }

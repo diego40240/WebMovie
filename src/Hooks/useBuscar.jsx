@@ -20,6 +20,7 @@ export function useBuscar() {
   useEffect(() => {
     obtener(busqueda);
   }, []);
+
   function buscar(e) {
     e.preventDefault();
     // seleccionamos el formulario y convertimos FORMDATA
@@ -28,7 +29,7 @@ export function useBuscar() {
     const inputs = Object.fromEntries(formBuscar);
     setBusqueda(inputs.buscar);
 
-    if (anteriorBuscar.current.value === busqueda) return null;
+    // if (anteriorBuscar.current.value === busqueda) return null;
     obtener(busqueda);
   }
 
@@ -46,20 +47,25 @@ export function useBuscar() {
   function sigue() {
     obtener(busqueda);
   }
-  return {
-    buscar,
-    cambioTecla,
-    busqueda,
-    anteriorBuscar,
-    loader,
-    respuesta,
-    sigue,
-    totalP,
-    noRespuesta,
-    skeleton,
-    obtener,
-    setLoader,
-    setSkeleton,
-    setNoRespuesta,
+
+  const oBuscar = {
+    buscar: buscar,
+    cambioTecla: cambioTecla,
+    busqueda: busqueda,
+    anteriorBuscar: anteriorBuscar,
+    sigue: sigue,
   };
+
+  const oRespuesta = {
+    respuesta: respuesta,
+    totalP: totalP,
+  };
+
+  const oCarga = {
+    loader: loader,
+    noRespuesta: noRespuesta,
+    skeleton: skeleton,
+  };
+
+  return { oBuscar, oCarga, oRespuesta };
 }
