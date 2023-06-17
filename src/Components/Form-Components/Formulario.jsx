@@ -1,4 +1,4 @@
-import { Buscar } from "./Form-Components/Buscar";
+import { Buscar } from "./Buscar";
 
 export function Formulario({ buscar, cambioTecla, busqueda, anteriorBuscar }) {
   return (

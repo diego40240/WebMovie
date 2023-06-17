@@ -1,13 +1,19 @@
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Loader } from "./Loader";
-import { Skeleton } from "./Skeleton";
+import { Loader } from "../Carga-Components/Loader";
+import { Skeleton } from "../Carga-Components/Skeleton";
 import { NoEncontrado } from "./NoEncontrado";
-import { BtnSubir } from "./Botones/BtnSubir";
+import { BtnSubir } from "../Botones/BtnSubir";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClapperboard } from "@fortawesome/free-solid-svg-icons";
 
+import { BtnEstrella } from "../Botones/BtnEstrella";
+import { useFavorito } from "../../Hooks/useFavorito";
+
 const img = `https://image.tmdb.org/t/p/w500/`;
+
 function CardPelicula({ datos }) {
+  const { agregarFavorito, getLocalFavorito } = useFavorito();
+
   return (
     <>
       {datos.map((dato) => (
@@ -23,11 +29,16 @@ function CardPelicula({ datos }) {
               <FontAwesomeIcon icon={faClapperboard} className="text-9xl" />
             </div>
           ) : (
-            <div className="overflow-hidden">
+            <div className="overflow-hidden relative">
               <img
                 src={img + dato.poster}
                 alt={dato.titulo}
-                className="cursor-pointer rounded h-[94%] transition ease-in-out duration-300  hover:scale-105 hover:opacity-70"
+                className="cursor-pointer rounded h-[94%] transition ease-in-out duration-300  hover:scale-105 hover:opacity-70 peer"
+              />
+              <BtnEstrella
+                id={dato.id}
+                agregarFavorito={agregarFavorito}
+                getLocalFavorito={getLocalFavorito}
               />
             </div>
           )}

@@ -1,9 +1,7 @@
 import "./App.css";
-
-import { MostrarPelicula } from "./Components/MostrarPelicula";
-
-import { Loader } from "./Components/Loader";
-import { Formulario } from "./Components/Formulario";
+import { MostrarPelicula } from "./Components/Pelicula-Components/MostrarPelicula";
+import { Loader } from "./Components/Carga-Components/Loader";
+import { Formulario } from "./Components/Form-Components/Formulario";
 import { useBuscar } from "./Hooks/useBuscar";
 
 function App() {
