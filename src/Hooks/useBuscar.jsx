@@ -25,8 +25,10 @@ export function useBuscar() {
     e.preventDefault();
     // seleccionamos el formulario y convertimos FORMDATA
     const formBuscar = new FormData(e.target);
+
     // Conertirmos el FormData a Objeto
     const inputs = Object.fromEntries(formBuscar);
+
     setBusqueda(inputs.buscar);
 
     // if (anteriorBuscar.current.value === busqueda) return null;

@@ -8,6 +8,8 @@ import { faClapperboard } from "@fortawesome/free-solid-svg-icons";
 
 import { BtnEstrella } from "../Botones/BtnEstrella";
 import { useFavorito } from "../../Hooks/useFavorito";
+import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
 
 const img = `https://image.tmdb.org/t/p/w500/`;
 
@@ -36,7 +38,13 @@ function CardPelicula({ datos }) {
                 className="cursor-pointer rounded h-[94%] transition ease-in-out duration-300  hover:scale-105 hover:opacity-70 peer"
               />
               <BtnEstrella
-                id={dato.id}
+                // id={dato.id}
+                datos={{
+                  id: dato.id,
+                  titulo: dato.titulo,
+                  año: dato.año,
+                  poster_previ: dato.poster_previ,
+                }}
                 agregarFavorito={agregarFavorito}
                 getLocalFavorito={getLocalFavorito}
               />
@@ -50,7 +58,7 @@ function CardPelicula({ datos }) {
 
 function ListaPeliculas({ datos }) {
   return (
-    <section className="w-full grid grid-cols-autofit gap-8 text-center">
+    <section className="w-full min-h-screen grid grid-cols-autofit gap-8 text-center">
       <CardPelicula datos={datos} />
     </section>
   );

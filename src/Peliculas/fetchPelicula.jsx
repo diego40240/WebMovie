@@ -22,6 +22,8 @@ export async function peticion({ busqueda, page }) {
     titulo: d.title,
     año: d.release_date,
     poster: d.poster_path,
+    poster_previ: d.backdrop_path,
+    descripcion: d.overview,
   }));
   return { resul, total };
 }
