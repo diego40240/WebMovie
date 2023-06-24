@@ -15,9 +15,14 @@ function Estrella({ id, getLocalFavorito }) {
   );
 }
 
-export function BtnEstrella({ datos, agregarFavorito, getLocalFavorito }) {
+export function BtnEstrella({
+  datos,
+  agregarFavorito,
+  getLocalFavorito,
+  usuario,
+}) {
   function agregandoListaFavorito() {
-    agregarFavorito({ datos });
+    agregarFavorito(datos, usuario);
   }
 
   return (

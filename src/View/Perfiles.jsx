@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserMinus } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { AgregarPerfil } from "../Components/Perfil/AgregarPerfil";
-import { colores, fotoPerfil } from "../Variables/variables";
+import { fotoPerfil } from "../Variables/variables";
 
 export function Perfiles() {
   const { crearPerfil, eliminarPerfil, usuarios } = useCrearPerfil();
@@ -36,9 +36,12 @@ export function Perfiles() {
         {usuarios.map((perfil) => (
           <div
             key={perfil.id}
-            className="relative w-36 flex flex-col justify-center items-center gap-4"
+            className="relative w-36 flex flex-col justify-center items-center text-center"
           >
-            <Link to="peliculas" className="">
+            <Link
+              to={"peliculas/" + perfil.id}
+              className="rounded-md hover:bg-slate-500 hover:bg-opacity-10 p-2 transition ease-in-out duration-300"
+            >
               <div
                 className={
                   "rounded-full w-28 h-28 border-2 flex justify-center items-center font-light text-[7rem] cursor-pointer bg-white " +
@@ -52,12 +55,13 @@ export function Perfiles() {
               to={`${perfil.id.toString()}&${perfil.nombre}&${perfil.color}&${
                 perfil.icono
               }`}
+              className="w-full py-1 rounded-md transition ease-in-out duration-300 hover:bg-slate-500 hover:bg-opacity-10"
             >
               {perfil.nombre}
             </Link>
 
             <button
-              className="absolute top-0 right-0"
+              className="rounded-full p-2 absolute -top-2 -right-2 transition ease-in-out duration-300 hover:scale-125  hover:bg-slate-500 hover:bg-opacity-10"
               value={perfil.id}
               onClick={elimnarUsuario}
             >

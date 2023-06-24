@@ -46,11 +46,14 @@ function FormularioCrearPerfil({ accion }) {
         type="text"
         name="nombre"
         placeholder="nombre"
-        className="text-white bg-transparent w-full h-10 py-4 px-4 outline-none outline-slate-600 focus:outline-slate-500 outline-offset-1 rounded"
+        className="text-white bg-transparent w-full h-10 py-4 px-4 outline-none outline-slate-600 focus:outline-slate-500 outline-offset-1 rounded hover:bg-slate-500 hover:bg-opacity-10"
         autoComplete="off"
       />
 
-      <button type="submit" className="bg-slate-500 w-full rounded py-1">
+      <button
+        type="submit"
+        className="bg-slate-500 w-full rounded py-1 hover:bg-opacity-80"
+      >
         Crear
       </button>
     </form>
@@ -59,7 +62,7 @@ function FormularioCrearPerfil({ accion }) {
 
 export function AgregarPerfil({ abrirCrear, usuario, nuevoUsuario }) {
   return (
-    <div className="relative flex flex-col justify-center items-center gap-4">
+    <div className="relative flex flex-col justify-center items-center gap-4 ">
       {nuevoUsuario ? (
         <>
           <BtnCerrar accion={abrirCrear} />
@@ -67,11 +70,11 @@ export function AgregarPerfil({ abrirCrear, usuario, nuevoUsuario }) {
           <FormularioCrearPerfil accion={usuario} />
         </>
       ) : (
-        <>
+        <div className="rounded-md p-2 flex flex-col gap-4 items-center hover:bg-slate-500 hover:bg-opacity-10 transition ease-in-out duration-300">
           <BtnAgregar accion={abrirCrear} />
 
-          <h3 className="">Agregar perfil</h3>
-        </>
+          <h3 className="cursor-pointer">Agregar perfil</h3>
+        </div>
       )}
     </div>
   );

@@ -13,8 +13,8 @@ import { useState } from "react";
 
 const img = `https://image.tmdb.org/t/p/w500/`;
 
-function CardPelicula({ datos }) {
-  const { agregarFavorito, getLocalFavorito } = useFavorito();
+function CardPelicula({ datos, usuario }) {
+  const { agregarFavorito, getLocalFavorito } = useFavorito(usuario);
 
   return (
     <>
@@ -38,7 +38,7 @@ function CardPelicula({ datos }) {
                 className="cursor-pointer rounded h-[94%] transition ease-in-out duration-300  hover:scale-105 hover:opacity-70 peer"
               />
               <BtnEstrella
-                // id={dato.id}
+                usuario={usuario}
                 datos={{
                   id: dato.id,
                   titulo: dato.titulo,
@@ -56,10 +56,10 @@ function CardPelicula({ datos }) {
   );
 }
 
-function ListaPeliculas({ datos }) {
+function ListaPeliculas({ datos, usuario }) {
   return (
     <section className="w-full min-h-screen grid grid-cols-autofit gap-8 text-center">
-      <CardPelicula datos={datos} />
+      <CardPelicula datos={datos} usuario={usuario} />
     </section>
   );
 }
@@ -69,6 +69,7 @@ export function MostrarPelicula({
   totalP,
   noRespuesta,
   skeleton,
+  usuario,
 }) {
   return (
     <>
@@ -84,7 +85,7 @@ export function MostrarPelicula({
             pullDownToRefreshContent={<Loader />}
             className="w-screen px-32"
           >
-            <ListaPeliculas datos={respuesta} />
+            <ListaPeliculas datos={respuesta} usuario={usuario} />
           </InfiniteScroll>
         </>
       ) : (

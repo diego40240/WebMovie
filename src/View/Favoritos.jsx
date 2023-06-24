@@ -1,16 +1,17 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { NavLink, Navigate, useLoaderData } from "react-router-dom";
 import { SkeletonFavorito } from "../Components/Carga-Components/SkeletonFavorito";
 import { Suspense } from "react";
 import { useFavorito } from "../Hooks/useFavorito";
 import { BtnEliminar } from "../Components/Botones/BtnElimnar";
 
 export default function Favoritos() {
-  const { favoritos } = useLoaderData();
+  const { favoritos, idUsuario } = useLoaderData();
+
   const img = `https://image.tmdb.org/t/p/w500/`;
 
-  const { agregarFavorito, getLocalFavorito } = useFavorito();
+  const { agregarFavorito, getLocalFavorito } = useFavorito(idUsuario);
 
   return favoritos === null ? (
     <section className="fixed z-50 top-0 w-full h-full min-h-screen bg-black bg-opacity-50 flex justify-center items-center">
@@ -22,7 +23,10 @@ export default function Favoritos() {
         >
           Añadir favoritos
         </NavLink> */}
-        <NavLink to="/peliculas" className="absolute top-0 right-0 text-xl m-3">
+        <NavLink
+          to={"/peliculas/" + idUsuario}
+          className="absolute top-0 right-0 text-xl m-3"
+        >
           <FontAwesomeIcon icon={faXmark} />
         </NavLink>
         <h3>No hay favorito</h3>
@@ -37,7 +41,7 @@ export default function Favoritos() {
         <div className="relative w-[35%] min-h-fit max-h-[90%] bg-slate-900 flex justify-center items-center flex-col overflow-auto py-4 px-10 gap-4 font-medium">
           <h2 className="text-xl">Favoritos</h2>
           <NavLink
-            to="/peliculas"
+            to={"/peliculas/" + idUsuario}
             className="absolute top-0 right-0 text-xl m-4"
           >
             <FontAwesomeIcon icon={faXmark} />
@@ -59,6 +63,7 @@ export default function Favoritos() {
                 </div>
                 <BtnEliminar
                   datos={{ id: dato.id }}
+                  idUsuario={idUsuario}
                   agregarFavorito={agregarFavorito}
                 />
 

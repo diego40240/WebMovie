@@ -16,7 +16,7 @@ export function Avatar({ avatar, accion, color }) {
     </div>
   ) : (
     <div
-      className="rounded-full w-28 h-28 border-slate-500 border-2 flex justify-center items-center text-3xl cursor-pointer"
+      className="rounded-full w-28 h-28 border-slate-500 border-2 flex justify-center items-center text-3xl cursor-pointer hover:bg-slate-500 hover:bg-opacity-10"
       onClick={accion}
     >
       <FontAwesomeIcon icon={faImage} />
