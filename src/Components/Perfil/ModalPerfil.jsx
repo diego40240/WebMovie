@@ -26,9 +26,11 @@ export function Avatar({ avatar, accion, color }) {
 export function ModalPerfil({ accion, cambioFoto }) {
   return (
     <div className="fixed z-50 top-0 left-0 w-full h-full min-h-screen bg-black bg-opacity-50 flex justify-center items-center">
-      <div className=" relative w-[30%] h-[92%] min-h-fit max-h-screen bg-slate-900 flex flex-wrap justify-center items-center gap-5 py-4 px-12 font-medium rounded overflow-auto lista-favorito">
+      <div className=" relative w-[90%] sm:w-[70%] md:w-[60%] md:px-5 lg:w-[50%] xl:w-[50%] 2xl:w-[30%] h-[92%] min-h-fit max-h-screen bg-slate-900 flex flex-wrap justify-center items-center gap-5 pb-4 lg:px-12 font-medium rounded overflow-auto lista-favorito">
         <BtnCerrar accion={accion} className="m-4" />
-        <h3 className="w-full text-center text-xl">Iconos</h3>
+        <h3 className="w-full bg-slate-900 py-2 text-center text-xl sticky top-0">
+          Iconos
+        </h3>
 
         {Object.entries(colores).map(([color, textColor]) =>
           Object.entries(fotoPerfil).map(([key, valor], index) => (
@@ -36,7 +38,7 @@ export function ModalPerfil({ accion, cambioFoto }) {
               key={index}
               onClick={cambioFoto}
               className={
-                "rounded-full w-28 h-28 border-2 flex justify-center items-center font-light text-[7rem] cursor-pointer bg-white " +
+                "rounded-full flex justify-center items-center font-light max-[350px]:text-7xl text-[7rem] cursor-pointer bg-white " +
                 textColor
               }
             >

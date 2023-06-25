@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useCrearPerfil } from "../../Hooks/useCrearPerfil";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -77,6 +77,7 @@ export function EditarPerfil() {
   const [id, nombre, color, icono] = datos.split("&");
 
   const { editarPerfil } = useCrearPerfil();
+  const navigate = useNavigate();
 
   function editarUsuario(e) {
     // e.preventDefault();
@@ -86,10 +87,17 @@ export function EditarPerfil() {
     const icono = e.target.icono.value;
     editarPerfil(nombre, id, color, icono);
   }
+
+  function direccion() {
+    navigate(-1);
+  }
   return (
     <section className="fixed z-50 top-0 w-full h-full min-h-screen bg-black bg-opacity-50 flex justify-center items-center">
-      <div className=" relative w-[20%] min-h-fit max-h-[90%] bg-slate-900 flex justify-center items-center flex-col py-5 px-12 font-medium rounded">
-        <Link to="/" className="absolute top-0 right-0 text-xl m-4">
+      <div className=" relative max-[350px]:w-[90%] min-h-fit max-h-[90%] bg-slate-900 flex justify-center items-center flex-col py-5 px-12 font-medium rounded">
+        <Link
+          onClick={direccion}
+          className="absolute top-0 right-0 text-xl m-4"
+        >
           <FontAwesomeIcon icon={faXmark} />
         </Link>
         <FormularioEditarPerfil

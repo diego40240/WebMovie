@@ -7,6 +7,7 @@ export default function BtnCerrar({ accion, className }) {
     <button
       onClick={accion}
       className={"absolute top-0 right-0 text-xl " + className}
+      type="button"
     >
       <FontAwesomeIcon icon={faXmark} />
     </button>

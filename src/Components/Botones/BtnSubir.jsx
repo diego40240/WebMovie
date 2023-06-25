@@ -11,7 +11,7 @@ export function BtnSubir() {
 
   return (
     <button
-      className="animate-bounce bg-white dark:bg-slate-800 p-2 w-10 h-10 ring-1 ring-slate-900/5 dark:ring-slate-200/20 shadow-lg rounded-full flex items-center justify-center fixed m-5 bottom-0 right-0 hover:opacity-95"
+      className="animate-bounce bg-white dark:bg-slate-800 p-2 w-10 h-10 ring-1 ring-slate-900/5 dark:ring-slate-200/20 shadow-lg rounded-full flex items-center justify-center fixed max-[350px]:m-1 lg:m-5 bottom-0 right-0 hover:opacity-95 z-40"
       onClick={cambioScroll}
     >
       <FontAwesomeIcon icon={faArrowUp} className="text-orange-500" />

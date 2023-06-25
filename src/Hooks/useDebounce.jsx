@@ -7,6 +7,8 @@ export function useDebounce({
   setNoRespuesta,
   obtener,
   anteriorBuscar,
+  setVerBuscar,
+  setBusqueda,
 }) {
   const useDebounceCall = useCallback(
     debounce((nuevaBusqueda) => {
@@ -25,11 +27,36 @@ export function useDebounce({
     []
   );
 
+  const buscarTime = useCallback(
+    debounce(() => {
+      setVerBuscar(false);
+    }, 10000),
+    []
+  );
+
+  const volver = useCallback(
+    debounce(() => {
+      obtener("");
+      setBusqueda("");
+    }, 300),
+    []
+  );
+
   // const useDebounceCall = useCallback(
   //   debounce(function (nuevaBusqueda) {
   //     return obtener(nuevaBusqueda);
   //   }, 300),
   //   []
   // );
-  return { useDebounceCall, loaderTime };
+  return { useDebounceCall, loaderTime, buscarTime, volver };
 }
+
+// export function cerrarBuscar({ setVerBuscar }) {
+//   const buscarTime = useCallback(
+//     debounce((setVerBuscar) => {
+//       setVerBuscar(false);
+//     }, 1000),
+//     []
+//   );
+//   return { buscarTime };
+// }

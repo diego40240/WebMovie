@@ -4,7 +4,7 @@ import { NavLink, Navigate, useLoaderData } from "react-router-dom";
 import { SkeletonFavorito } from "../Components/Carga-Components/SkeletonFavorito";
 import { Suspense } from "react";
 import { useFavorito } from "../Hooks/useFavorito";
-import { BtnEliminar } from "../Components/Botones/BtnElimnar";
+import { BtnEliminar } from "../Components/Botones/BtnEliminar";
 
 export default function Favoritos() {
   const { favoritos, idUsuario } = useLoaderData();
@@ -38,7 +38,7 @@ export default function Favoritos() {
         id="favoritos"
         className="fixed z-50 top-0 w-full h-full min-h-screen bg-black bg-opacity-50 flex justify-center items-center"
       >
-        <div className="relative w-[35%] min-h-fit max-h-[90%] bg-slate-900 flex justify-center items-center flex-col overflow-auto py-4 px-10 gap-4 font-medium">
+        <div className="relative max-md:w-[90%] max-md:px-4 md:w-[80%] lg:w-[50%] 2xl:w-[35%] min-h-fit max-h-[90%] bg-slate-900 flex justify-center items-center flex-col overflow-auto py-4 md:px-10 gap-4 font-medium">
           <h2 className="text-xl">Favoritos</h2>
           <NavLink
             to={"/peliculas/" + idUsuario}

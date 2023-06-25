@@ -52,6 +52,7 @@ export function useCrearPerfil() {
     if (Object.hasOwn(perfiles, id)) {
       delete perfiles[id];
       localStorage.removeItem("usuarios");
+      localStorage.removeItem(id);
       const usuarios = { ...perfiles };
       const nuevoUsuario = JSON.stringify(usuarios);
       localStorage.setItem("usuarios", nuevoUsuario);

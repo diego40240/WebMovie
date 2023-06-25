@@ -31,20 +31,20 @@ export function Perfiles() {
   }
 
   return (
-    <section className="w-full h-screen bg-gradient-to-t from-slate-950 to-slate-900 text-white">
-      <div className="w-full h-full flex flex-wrap justify-center items-center gap-10">
+    <section className="w-full min-h-screen lg:h-screen bg-gradient-to-t from-slate-950 to-slate-900 text-white flex justify-center items-center font-medium">
+      <div className="py-5 px-3 min-[350px]:w-[90%] min-[350px]:gap-4 lg:w-[70%] lg:h-fit h-full flex flex-wrap justify-center items-center lg:gap-10 ">
         {usuarios.map((perfil) => (
           <div
             key={perfil.id}
-            className="relative w-36 flex flex-col justify-center items-center text-center"
+            className="relative flex-1 flex flex-col justify-center items-center text-center "
           >
             <Link
               to={"peliculas/" + perfil.id}
-              className="rounded-md hover:bg-slate-500 hover:bg-opacity-10 p-2 transition ease-in-out duration-300"
+              className="rounded-md hover:bg-slate-500 hover:bg-opacity-10 p-2 transition ease-in-out duration-300 w-full h-full flex justify-center items-center"
             >
               <div
                 className={
-                  "rounded-full w-28 h-28 border-2 flex justify-center items-center font-light text-[7rem] cursor-pointer bg-white " +
+                  "rounded-full flex justify-center items-center font-light max-[350px]:text-7xl text-8xl lg:text-[10rem] cursor-pointer bg-white " +
                   perfil.color
                 }
               >
@@ -55,9 +55,15 @@ export function Perfiles() {
               to={`${perfil.id.toString()}&${perfil.nombre}&${perfil.color}&${
                 perfil.icono
               }`}
-              className="w-full py-1 rounded-md transition ease-in-out duration-300 hover:bg-slate-500 hover:bg-opacity-10"
+              title={perfil.nombre}
+              className="w-full py-1 rounded-md transition ease-in-out duration-300 hover:bg-slate-500 hover:bg-opacity-10 overflow-hidden text-ellipsis "
             >
-              {perfil.nombre}
+              <h3 className="transition duration-300 ease-out peer">
+                {perfil.nombre}
+              </h3>
+              <h3 className="hidden transition duration-300 ease-out translate-y-6 peer-hover:translate-y-0 hover:translate-y-0 peer-hover:block hover:block">
+                EDITAR
+              </h3>
             </Link>
 
             <button

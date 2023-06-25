@@ -6,7 +6,7 @@ export function Buscar({ cambioTecla, busqueda }) {
         type="text"
         name="buscar"
         placeholder="Buscar pelicula"
-        className="w-full h-full rounded bg-transparent focus:bg-slate-800 px-5 py-3 outline-none outline-offset-1 outline-slate-700 focus:outline-slate-600"
+        className="w-full h-full rounded bg-transparent focus:bg-slate-800 px-3 outline-none outline-offset-1 outline-slate-700 focus:outline-slate-600"
         onChange={cambioTecla}
         value={busqueda.trimStart(" ")}
         // ref={anteriorBuscar}

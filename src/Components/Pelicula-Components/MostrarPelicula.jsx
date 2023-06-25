@@ -58,7 +58,7 @@ function CardPelicula({ datos, usuario }) {
 
 function ListaPeliculas({ datos, usuario }) {
   return (
-    <section className="w-full min-h-screen grid grid-cols-autofit gap-8 text-center">
+    <section className="w-full min-h-screen grid grid-cols-autofit gap-8 text-center ">
       <CardPelicula datos={datos} usuario={usuario} />
     </section>
   );
@@ -70,9 +70,12 @@ export function MostrarPelicula({
   noRespuesta,
   skeleton,
   usuario,
+  oCargaLoader,
 }) {
+  const estiloMargenPeli = oCargaLoader ? "max-md:mt-24 md:mt-10" : "mt-14";
   return (
-    <>
+    <div className={"w-screen " + estiloMargenPeli}>
+      {oCargaLoader && <Loader />}
       {respuesta.length > 0 ? (
         <>
           <BtnSubir />
@@ -83,7 +86,7 @@ export function MostrarPelicula({
             loader={<Loader />}
             scrollThreshold={1}
             pullDownToRefreshContent={<Loader />}
-            className="w-screen px-32"
+            className="w-full px-4 sm:px-10 md:px-14 lg:px-20 xl:px-28 2xl:px-32"
           >
             <ListaPeliculas datos={respuesta} usuario={usuario} />
           </InfiniteScroll>
@@ -94,6 +97,6 @@ export function MostrarPelicula({
           {skeleton && <Skeleton numeroCard={20} />}
         </>
       )}
-    </>
+    </div>
   );
 }

@@ -4,9 +4,15 @@ import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
 
 function Estrella({ id, getLocalFavorito }) {
   return getLocalFavorito === null ? (
-    <FontAwesomeIcon icon={faStarRegular} className="pointer-events-none" />
+    <FontAwesomeIcon
+      icon={faStarRegular}
+      className="pointer-events-none rounded-full bg-black bg-opacity-70 p-2"
+    />
   ) : getLocalFavorito[id] === undefined ? (
-    <FontAwesomeIcon icon={faStarRegular} className="pointer-events-none" />
+    <FontAwesomeIcon
+      icon={faStarRegular}
+      className="pointer-events-none rounded-full bg-black bg-opacity-70 p-2"
+    />
   ) : (
     <FontAwesomeIcon
       icon={faStarSolid}
@@ -27,7 +33,7 @@ export function BtnEstrella({
 
   return (
     <button
-      className="m-1 rounded-full w-8 h-8 absolute top-0 right-0 invisible peer-hover:visible hover:visible flex justify-center items-center hover:scale-110 transition ease-in-out duration-300"
+      className="m-1 rounded-full w-8 h-8 absolute top-0 right-0 lg:invisible peer-hover:visible hover:visible flex justify-center items-center hover:scale-110 transition ease-in-out duration-300"
       onClick={agregandoListaFavorito}
       id={datos.id}
     >

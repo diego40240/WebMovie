@@ -54,6 +54,7 @@ export function useBuscar() {
     buscar: buscar,
     cambioTecla: cambioTecla,
     busqueda: busqueda,
+    setBusqueda: setBusqueda,
     anteriorBuscar: anteriorBuscar,
     sigue: sigue,
   };
@@ -61,6 +62,7 @@ export function useBuscar() {
   const oRespuesta = {
     respuesta: respuesta,
     totalP: totalP,
+    obtener: obtener,
   };
 
   const oCarga = {

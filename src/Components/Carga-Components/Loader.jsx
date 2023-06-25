@@ -16,7 +16,7 @@ function BtnCargando() {
 
 export function Loader() {
   return (
-    <section className="grid place-items-center mt-4">
+    <section className="grid place-items-center my-4">
       <BtnCargando />
     </section>
   );
